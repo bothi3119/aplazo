@@ -1,0 +1,12 @@
+<mat-selection-list
+  #character
+  [multiple]="false"
+  (click)="onClick.emit({ name: character.selectedOptions.selected[0]?.value })"
+>
+  <mat-list-option
+    *ngFor="let character of listCharacter"
+    [value]="character.name"
+  >
+    {{ character.name }}
+  </mat-list-option>
+</mat-selection-list>

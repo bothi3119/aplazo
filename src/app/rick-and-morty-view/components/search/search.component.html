@@ -1,0 +1,18 @@
+<div class="border py-2 px-2">
+  <form [formGroup]="dataForm">
+    <mat-form-field class="example-full-width">
+      <span matPrefix> </span>
+      <input
+        type="tel"
+        matInput
+        placeholder="Search"
+        name="search"
+        formControlName="search"
+        (blur)="dataForm.get('search')?.setValue(' ')"
+      />
+      <button matSuffix mat-button>
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+  </form>
+</div>

@@ -1,0 +1,7 @@
+.rick-morty-body {
+  height: 300px;
+  overflow: auto;
+  &.color {
+    background-color: #b0bec5;
+  }
+}

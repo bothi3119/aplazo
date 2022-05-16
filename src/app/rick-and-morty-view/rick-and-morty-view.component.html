@@ -1,0 +1,37 @@
+<div class="container border mt-4 pb-4">
+  <div
+    class="d-flex justify-content-between border align-items-center mt-5 mb-5 py-4 px-3"
+  >
+    <mat-chip-list aria-label="Fish selection">
+      <mat-chip color="primary" selected (click)="actionChip('character')"
+        >Character</mat-chip
+      >
+      <mat-chip color="accent" selected (click)="actionChip('episode')"
+        >Episode</mat-chip
+      >
+      <mat-chip color="primary" selected (click)="actionChip('location')"
+        >Location</mat-chip
+      >
+    </mat-chip-list>
+    <app-search (searchEvent)="getSearchValue($event)"></app-search>
+  </div>
+  <div class="border rick-morty-body mx-2" [ngClass]="{ color: isSelectChip }">
+    <app-character
+      *ngIf="flow === FLOW_ENUM.CHARACTER"
+      [listCharacter]="characterData | filterByValue: searchData:'$..name'"
+      (onClick)="getOnClickEvent($event)"
+    ></app-character>
+    <app-episode
+      *ngIf="flow === FLOW_ENUM.EPISODE"
+      [listEpisode]="episodeData | filterByValue: searchData:'$..name'"
+      (onClick)="getOnClickEvent($event)"
+    ></app-episode>
+    <app-locations
+      *ngIf="flow === FLOW_ENUM.LOCATION"
+      [listLocation]="locationData | filterByValue: searchData:'$..name'"
+      (onClick)="getOnClickEvent($event)"
+    ></app-locations>
+  </div>
+</div>
+
+<div class="container border my-4 py-3 px-3">{{ name | titlecase }}</div>

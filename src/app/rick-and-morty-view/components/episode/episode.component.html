@@ -1,0 +1,14 @@
+<mat-selection-list
+  #episode
+  [multiple]="false"
+  (click)="
+    onClick.emit({
+      name: episode.selectedOptions.selected[0]?.value,
+      flow: 'character'
+    })
+  "
+>
+  <mat-list-option *ngFor="let episode of listEpisode" [value]="episode.name">
+    {{ episode.name }}
+  </mat-list-option>
+</mat-selection-list>
